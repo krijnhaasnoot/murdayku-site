@@ -48,7 +48,9 @@
 <script>
   // /d/22 → "Murdayku #22" in de kop, zodat de link voelt als het gedeelde potje.
   const parts = location.pathname.split("/").filter(Boolean);
-  const num = parts[0] === "d" && /^\d{1,4}$/.test(parts[1] || "") ? parts[1] : null;
+  const query = new URLSearchParams(location.search).get("n");
+  const raw = (parts[0] === "d" && parts[1]) || query || "";
+  const num = /^\d{1,4}$/.test(raw) ? raw : null;
   if (num) {
     document.getElementById("title").textContent = "Murdayku #" + num + " — ben jij sneller? 🧩";
   }
