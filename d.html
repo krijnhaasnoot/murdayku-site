@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Speel de zaak van vandaag — Murdayku</title>
+<meta name="description" content="Vier verse moordzaken per dag, voor iedereen dezelfde. Kijk of jij sneller bent.">
+<link rel="icon" href="logo.svg" type="image/svg+xml">
+<link rel="stylesheet" href="style.css">
+<meta property="og:title" content="Ben jij sneller? 🧩">
+<meta property="og:description" content="Vier verse moordzaken per dag, voor iedereen dezelfde. Kijk of jij sneller bent.">
+<meta property="og:type" content="website">
+</head>
+<body>
+<div class="wrap">
+
+  <header class="site">
+    <img src="logo.svg" alt="">
+    <span class="wordmark">Su<span class="day">day</span>ku</span>
+    <nav>
+      <a href="support">Support</a>
+      <a href="privacy">Privacy</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <img src="logo.svg" alt="Murdayku-logo">
+    <h1 id="title">Ben jij sneller? 🧩</h1>
+    <p>Elke nacht om twaalf uur staan er vier verse moordzaken klaar, van makkelijk 🌱 tot expert 🌋 — voor iedereen dezelfde. Speel dezelfde zaak en kijk wie er sneller was.</p>
+    <div class="badges">
+      <a class="btn" href="murdayku://">Open in Murdayku</a>
+    </div>
+    <p style="font-size: 15px; margin-top: 18px;">Met de app opent deze link direct het Vandaag-scherm.</p>
+  </section>
+
+  <section class="note">
+    <p><strong>Nog geen Murdayku?</strong> De app is nog in test via TestFlight en verschijnt binnenkort in de App Store. Meedoen? Mail naar <a href="mailto:krijnhaasnoot@gmail.com">krijnhaasnoot@gmail.com</a>.</p>
+  </section>
+
+  <footer class="site">
+    <span>© 2026 Murdayku</span>
+    <a href="privacy">Privacyverklaring</a>
+    <a href="support">Support</a>
+    <a href="terms">Voorwaarden</a>
+  </footer>
+
+</div>
+<script>
+  // /d/22 → "Murdayku #22" in de kop, zodat de link voelt als het gedeelde potje.
+  const parts = location.pathname.split("/").filter(Boolean);
+  const num = parts[0] === "d" && /^\d{1,4}$/.test(parts[1] || "") ? parts[1] : null;
+  if (num) {
+    document.getElementById("title").textContent = "Murdayku #" + num + " — ben jij sneller? 🧩";
+  }
+</script>
+</body>
+</html>

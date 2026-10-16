@@ -1,0 +1,138 @@
+/* Sudayku — koraal/amber uit het app-icoon, Poppins lokaal meegeleverd (SIL OFL) */
+
+@font-face {
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("fonts/poppins-400.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("fonts/poppins-600.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("fonts/poppins-700.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 800;
+  font-display: swap;
+  src: url("fonts/poppins-800.woff2") format("woff2");
+}
+
+:root {
+  --coral: #ff7e5c;         /* linksboven in het icoonverloop */
+  --coral-deep: #f75a6e;    /* rechtsonder */
+  --amber: #ffb526;         /* de zon in het icoon */
+  --amber-deep: #f3a712;
+  --link: #b8760a;            /* amber leest slecht op wit, dit wel */
+  --ink: #17171b;
+  --ink-soft: #6f6a6c;
+  --bg: #fff6f3;
+  --card: #ffffff;
+  --line: rgba(23, 23, 27, 0.1);
+  --radius: 20px;
+  --font: "Poppins", -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --ink: #f7f2f0;
+    --ink-soft: #b3a6a3;
+    --bg: #1c1416;
+    --card: #271d20;
+    --link: #ffc94d;
+    --line: rgba(255, 255, 255, 0.13);
+  }
+}
+
+* { box-sizing: border-box; }
+
+a { color: var(--link); }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font: 400 17px/1.7 var(--font);
+  -webkit-font-smoothing: antialiased;
+}
+
+.wrap { max-width: 760px; margin: 0 auto; padding: 32px 20px 80px; }
+
+/* Woordmerk: "day" in amber, net als in het logo */
+.wordmark { font-weight: 800; letter-spacing: -0.02em; color: var(--ink); }
+.wordmark .day { color: var(--amber); }
+
+/* Kop */
+header.site { display: flex; align-items: center; gap: 12px; margin-bottom: 48px; }
+header.site img { width: 40px; height: 40px; border-radius: 22%; }
+header.site .wordmark { font-size: 23px; }
+header.site nav { margin-left: auto; display: flex; gap: 18px; flex-wrap: wrap; }
+header.site nav a { color: var(--ink-soft); text-decoration: none; font-size: 15px; font-weight: 600; }
+header.site nav a:hover { color: var(--amber-deep); }
+
+/* Hero */
+.hero { text-align: center; margin-bottom: 56px; }
+.hero img { width: 190px; height: 190px; border-radius: 22%; box-shadow: 0 10px 30px rgba(23, 23, 27, 0.12); }
+.hero .wordmark { font-size: clamp(46px, 11vw, 72px); line-height: 1.05; display: block; margin: 4px 0 6px; }
+.hero .tagline {
+  font-size: 13px; font-weight: 600; letter-spacing: 0.22em; text-transform: uppercase;
+  color: var(--ink-soft);
+  /* auto-marges niet weggooien: .hero p geeft dit blok een max-width, en
+     zonder auto blijft het aan de linkerkant plakken. */
+  margin: 0 auto 28px;
+  /* Letterspatiëring zet ook ruimte áchter de laatste letter, waardoor
+     gecentreerde tekst naar links lijkt te schuiven. Dit compenseert dat. */
+  text-indent: 0.22em;
+}
+.hero h1 { font-size: clamp(26px, 5vw, 34px); line-height: 1.2; letter-spacing: -0.02em; margin: 0 0 12px; font-weight: 700; }
+.hero p { font-size: 18px; color: var(--ink-soft); margin: 0 auto; max-width: 30em; }
+
+.badges { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; margin-top: 28px; }
+.btn {
+  display: inline-block; padding: 13px 26px; border-radius: 999px;
+  font-weight: 700; text-decoration: none; font-size: 16px; font-family: var(--font);
+  background: var(--amber); color: var(--ink);
+  box-shadow: 0 8px 20px rgba(255, 181, 38, 0.4);
+}
+.btn.secondary { background: none; color: var(--ink); border: 2px solid var(--line); box-shadow: none; }
+
+/* Kaarten */
+.cards { display: grid; gap: 16px; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); margin: 48px 0; }
+.card { background: var(--card); border-radius: var(--radius); padding: 22px; box-shadow: 0 2px 14px rgba(23, 23, 27, 0.07); }
+.card .emoji { font-size: 28px; display: block; margin-bottom: 8px; }
+.card h3 { margin: 0 0 6px; font-size: 17px; font-weight: 700; }
+.card p { margin: 0; color: var(--ink-soft); font-size: 15px; }
+
+/* Tekstpagina's */
+main h1 { font-size: 34px; letter-spacing: -0.02em; margin: 0 0 6px; font-weight: 800; }
+main .updated { color: var(--ink-soft); font-size: 15px; margin: 0 0 36px; }
+main h2 { font-size: 21px; margin: 40px 0 10px; letter-spacing: -0.01em; font-weight: 700; }
+main h3 { font-size: 17px; margin: 26px 0 6px; font-weight: 600; }
+main ul { padding-left: 22px; }
+main li { margin-bottom: 6px; }
+main a { color: var(--link); }
+
+.lang-switch { display: inline-flex; gap: 8px; background: var(--card); padding: 6px; border-radius: 999px; margin-bottom: 28px; }
+.lang-switch a { padding: 6px 16px; border-radius: 999px; text-decoration: none; font-weight: 700; font-size: 14px; color: var(--ink-soft); }
+.lang-switch a.on { background: var(--amber); color: var(--ink); }
+
+.note { background: var(--card); border-left: 4px solid var(--amber); border-radius: 12px; padding: 16px 18px; margin: 24px 0; }
+.note p { margin: 0; font-size: 15px; }
+
+table { width: 100%; border-collapse: collapse; margin: 18px 0; font-size: 15px; }
+th, td { text-align: left; padding: 10px 12px; border-bottom: 1px solid var(--line); vertical-align: top; }
+th { font-weight: 700; }
+
+footer.site { margin-top: 72px; padding-top: 24px; border-top: 1px solid var(--line); color: var(--ink-soft); font-size: 14px; display: flex; gap: 18px; flex-wrap: wrap; }
+footer.site a { color: var(--ink-soft); }

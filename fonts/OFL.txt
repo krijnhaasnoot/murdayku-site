@@ -1,0 +1,11 @@
+De Poppins-fonts in deze map (poppins-400/600/700/800.woff2, latin-subset)
+zijn van Indian Type Foundry en Jonny Pinhorn en staan onder de SIL Open Font
+License 1.1. Die licentie staat herdistributie en gebruik op een website toe,
+mits deze vermelding meegaat.
+
+Volledige licentietekst: https://openfontlicense.org
+Bron van de bestanden: https://fonts.google.com/specimen/Poppins
+
+Ze worden hier lokaal meegeleverd in plaats van via de Google Fonts-CDN, zodat
+bezoekers van sudayku.com geen verzoek naar een server van Google sturen. Dat
+past bij wat de privacyverklaring belooft.

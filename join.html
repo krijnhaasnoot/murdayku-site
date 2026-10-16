@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Doe mee met dit potje — Murdayku</title>
+<meta name="description" content="Je bent uitgedaagd voor een potje Murdayku: dezelfde zaak, één klok — de snelste tijd wint.">
+<link rel="icon" href="logo.svg" type="image/svg+xml">
+<link rel="stylesheet" href="style.css">
+<meta property="og:title" content="Je bent uitgedaagd voor een potje Murdayku! 🏖️">
+<meta property="og:description" content="Dezelfde zaak, één klok — de snelste tijd wint. Open de link en doe mee.">
+<meta property="og:type" content="website">
+</head>
+<body>
+<div class="wrap">
+
+  <header class="site">
+    <img src="logo.svg" alt="">
+    <span class="wordmark">Su<span class="day">day</span>ku</span>
+    <nav>
+      <a href="support">Support</a>
+      <a href="privacy">Privacy</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <img src="logo.svg" alt="Murdayku-logo">
+    <h1>Je bent uitgedaagd! 🏖️</h1>
+    <p>Een potje Murdayku: dezelfde zaak, één klok — de snelste tijd wint.</p>
+    <p id="code" style="font-size: clamp(44px, 12vw, 64px); font-weight: 800; letter-spacing: 0.18em; color: var(--amber); margin: 20px 0 4px;" hidden></p>
+    <div class="badges">
+      <a class="btn" id="open" href="murdayku://">Open in Murdayku</a>
+    </div>
+    <p id="hint" style="font-size: 15px; margin-top: 18px;">Heb je de app? Tik op de knop, of ga in de app naar <strong>Vandaag → “Ik heb een code”</strong> en vul de code in.</p>
+  </section>
+
+  <section class="note">
+    <p><strong>Nog geen Murdayku?</strong> De app is nog in test via TestFlight en verschijnt binnenkort in de App Store. Meedoen? Mail naar <a href="mailto:krijnhaasnoot@gmail.com">krijnhaasnoot@gmail.com</a>.</p>
+  </section>
+
+  <footer class="site">
+    <span>© 2026 Murdayku</span>
+    <a href="privacy">Privacyverklaring</a>
+    <a href="support">Support</a>
+    <a href="terms">Voorwaarden</a>
+  </footer>
+
+</div>
+<script>
+  // Code uit het pad (/join/4ZTEW) of desnoods ?code=4ZTEW.
+  const parts = location.pathname.split("/").filter(Boolean);
+  const query = new URLSearchParams(location.search).get("code");
+  let code = ((parts[0] === "join" && parts[1]) || query || "").toUpperCase();
+  // Zelfde alfabet als in de app: geen I, O, 0 of 1.
+  if (!/^[A-HJ-NP-Z2-9]{5}$/.test(code)) code = "";
+  if (code) {
+    const el = document.getElementById("code");
+    el.textContent = code;
+    el.hidden = false;
+    document.getElementById("open").href = "murdayku://join?code=" + code;
+  } else {
+    document.getElementById("hint").innerHTML =
+      "Vraag je vriend om de code en ga in de app naar <strong>Vandaag → “Ik heb een code”</strong>.";
+  }
+</script>
+</body>
+</html>
